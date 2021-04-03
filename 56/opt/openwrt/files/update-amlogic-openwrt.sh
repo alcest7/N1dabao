@@ -5,14 +5,12 @@ if [ "$1" == "" ];then
     echo "用法: $0 xxx.img"
     exit 1
 fi
-
 # 检查镜像文件是否存在
 IMG_NAME=$1
 if [ ! -f "$IMG_NAME" ];then
     echo "$IMG_NAME 不存在!"
     exit 1
 fi
-
 # 查找当前的 /boot 分区信息
 DEPENDS="lsblk uuidgen grep awk mkfs.fat mkfs.btrfs perl md5sum"
 for dep in ${DEPENDS};do
